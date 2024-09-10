@@ -17,11 +17,12 @@ footer .footer > div {
 
 footer .footer p {
   margin: 0;
-  margin-top: 20px;
+  margin-top: 60px;
   a:link, a:visited {
     color:#ebebeb;
     text-decoration: underline;}
     font-size: var(--fontSizeXSmall, 9pt);
+line-height: 15 px;
 }
 footer.footer a {
   color:#ebebeb;
