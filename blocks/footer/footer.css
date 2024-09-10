@@ -34,6 +34,7 @@ footer.footer a {
 .footer a {
   color: #ebebeb;
   text-decoration-color: #ebebeb;
+    line-height: 15 px;
   
 }
 
@@ -41,6 +42,7 @@ footer.footer a {
   margin-top: 50px;
   margin-bottom: 10px;
   font-size: 11.5px;
+    line-height: 15 px;
 }
 
 footer .default-content-wrapper{
