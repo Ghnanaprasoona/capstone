@@ -22,7 +22,6 @@ footer .footer p {
     color:#ebebeb;
     text-decoration: underline;}
     font-size: var(--fontSizeXSmall, 9pt);
-line-height: 15 px;
 }
 footer.footer a {
   color:#ebebeb;
@@ -34,15 +33,13 @@ footer.footer a {
 .footer a {
   color: #ebebeb;
   text-decoration-color: #ebebeb;
-    line-height: 15 px;
   
 }
 
 .footer p {
-  margin-top: 20px;
+  margin-top: 50px;
   margin-bottom: 10px;
   font-size: 11.5px;
-    line-height: 15 px;
 }
 
 footer .default-content-wrapper{
@@ -78,8 +75,7 @@ footer .footer img {
   height: auto;
   margin-right: auto;
   margin-top: -500px;
-  padding-bottom: 30px;
-     padding-top: 30px;
+  padding-bottom: 10px;
   
 }
 
