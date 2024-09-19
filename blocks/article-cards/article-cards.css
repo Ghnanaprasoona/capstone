@@ -36,6 +36,7 @@
   text-align :left;
   font-weight :400;
   line-height :54px;
+  position: relative;
  
  
   }
@@ -50,9 +51,6 @@
     line-height: 36px;
   }
 
-.section.article-cards-container > .article-cards-wrapper > .article-cards.block > div {
-  /* Styles for div inside article cards */
-}
 
 .section.article-cards-container > .article-cards-wrapper > .article-cards.block > div > div:first-child > p {
   margin-bottom: 0;
