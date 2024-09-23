@@ -303,7 +303,18 @@ main .section.highlight {
     width: 84px;
     height: 2px;
     background-color: rgb(255, 234, 0);
+  
     
+}
+.section.about-us-cards-container >.default-content-wrapper >h2::after{
+  content: '';
+  position: absolute;
+  left: 4%; 
+  transform: translateX(-50%); 
+  bottom: 0;
+  width: 84px;
+  height: 2px;
+  background-color: rgb(255, 234, 0);
 }
 .section.carousel-container >.default-content-wrapper >h2{
   color :rgb(32, 32, 32);
@@ -316,4 +327,90 @@ main .section.highlight {
   font-weight :400;
   line-height :54px;
   position: relative;
+}
+.section.article-featured-container>.default-content-wrapper>h1{
+      font-weight: normal;
+  margin: 27px 0 13.5px;
+  font-size: 40px;
+  color: rgb(32, 32, 32);
+display: block;
+font-family :Asar, Georgia, "Times New Roman", Times, serif;
+font-size :40px;
+font-weight :400;
+height: 60px;
+line-height :60px;
+margin-block-end :13.5px;
+margin-block-start: 27px;
+margin-bottom: 13.5px;
+   
+}
+.section>.default-content-wrapper>h2{
+  font-weight: normal;
+  margin: 27px 0 13.5px;
+  font-size: 40px;
+  color: rgb(32, 32, 32);
+display: block;
+font-family :Asar, Georgia, "Times New Roman", Times, serif;
+font-size :40px;
+font-weight :400;
+height: 60px;
+line-height :60px;
+margin-block-end :13.5px;
+margin-block-start: 27px;
+margin-bottom: 13.5px;
+}
+/* Magazine Page */
+main:has(.section.magazine-image) {
+  padding: 0 14px;
+  > .section.magazine-image {
+    > .default-content-wrapper {
+      > picture {
+        > img {
+          margin: 0 7px;
+          width: 100%;
+        }
+      }
+    }
+  }
+  > .section.magazine-text {
+    > .default-content-wrapper {
+      > h2:first-child {
+        all:unset;
+        font-family: var(--fontFamilySerif, "Asar", Georgia, "Times New Roman", Times, serif);
+        font-weight: var(--fontWeightNormal, normal);
+        margin-bottom: 13.5px;
+        margin-top: 27px;
+        font-size:40px;
+      }
+      >h2:first-child::before{
+        border-bottom: none;
+      }
+      > p{
+        font-size:18px;
+        line-height: 2.5;
+        margin: 0 0 13.5px;
+        text-align: justify;
+        font-family: var(--fontFamilySansSerif,"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif);
+      }
+    }
+  }
+}
+
+
+@media (width>1024px){
+  main:has(.section.magazine-image) {
+    display:flex;
+    flex-wrap:wrap
+  }
+  .section.magazine-image {
+    flex:0 0 100%;
+  }
+  .section.magazine-text{
+    flex: 0 0 66%;
+    padding-right:60px;
+    padding-left:40px;
+  }
+  .section.magazine-list{
+    flex:0 1 20%
+  }
 }
