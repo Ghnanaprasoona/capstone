@@ -372,6 +372,7 @@ main:has(.section.magazine-image) {
       }
     }
   }
+
   > .section.magazine-text {
     > .default-content-wrapper {
       > h2:first-child {
