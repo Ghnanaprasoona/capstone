@@ -1,78 +1,52 @@
-async function getQueryIndexJson(jsonURL,val){
-    let pathname=null;
-    if(val){
-        pathname=jsonURL;
-    }else{
-        pathname=new URL(jsonURL);
+export default async function decorate(block) {
+    console.log('Decorate function called');
+    
+    console.log('Block:', block);
+    
+    const articleListBlock = document.querySelector('.article-list.block');
+    console.log('Article list block:', articleListBlock);
+
+    if (!articleListBlock) {
+        console.error('Article list block not found');
+        return;
     }
 
-    const resp=await fetch(pathname);
-    const json=await resp.json();
-    return json.data;
-}
+    try {
+        const formURL = block.querySelector('a[href$=".json"]');
 
-function getTitle(page){
-    return page.title;
-}
+        const response = await fetch(formURL.href);
+        const jsonData = await response.json();
+        console.log('Fetched JSON data:', jsonData); 
 
-function getDate(page){
-    const timestamp=page.lastModified;
-    const date=new Date(timestamp*1000);
+        // Extract data
+        const magazineData = jsonData.data.filter(item => item.path.startsWith('/magazine/') && item.path !== '/magazine/');
+        console.log('Filtered magazine data:', magazineData); 
 
-    const options = {
-        weekday: 'long',
-        day: '2-digit',
-        month: 'short', 
-        year: 'numeric' 
-    };
-
-    const formattedDate = new Intl.DateTimeFormat('en-US', options).format(date);
-    const parts = formattedDate.split(' ');
-    parts[2]=parts[2].replace(',','');
-    const finalFormattedDate = `${parts[0].toUpperCase()} ${parts[1]} ${parts[2].toUpperCase()} ${parts[3]}`;
-    return finalFormattedDate;
-}
-
-function createHTMLForBlock(json){
-    const unorderedList=document.createElement('ul');
-    const allListItems=[];
-    json.forEach(page => {
-        if(page.path.startsWith('/magazine/') && page.path!='/magazine/'){
-            const listItem=document.createElement('li');
-            const anchorTag=document.createElement('a');
-            const titleSpan=document.createElement('span');
-            titleSpan.classList.add('pageTitle');
-            const dateSpan=document.createElement('span');
-            dateSpan.classList.add('pageDate');
-
-            titleSpan.innerHTML=getTitle(page);
-            dateSpan.innerHTML=getDate(page);
-
-            anchorTag.append(titleSpan);
-            anchorTag.append(dateSpan);
-
-            anchorTag.href='https://main--eds-training--eds-kunal.hlx.live'+page.path;
-
-            listItem.append(anchorTag);
-           allListItems.push(listItem);
+        if (!Array.isArray(magazineData)) {
+            throw new Error('Expected an array in the JSON data but found something else');
         }
-    });
 
-    const extractDate = (li) => {
-        const dateText = li.querySelector('.pageDate').textContent.trim();
-        return new Date(dateText);
-      };
+        // Function to format Unix timestamp to readable date
+        const formatDate = (timestamp) => {
+            const date = new Date(timestamp * 1000); 
+            const options = { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' };
+            return date.toLocaleDateString('en-US', options).toUpperCase();
+        };
 
-    allListItems.sort((a, b) => extractDate(b) - extractDate(a));
-    allListItems.forEach(item => {
-        unorderedList.append(item);
-    });
-    return unorderedList;
-}
-export default async function decorate(block){
-    const articles=block.querySelector('a[href$=".json"]');
-    const json=await getQueryIndexJson(articles.href,null);
-    block.innerHTML='';
-    const blockHTML=createHTMLForBlock(json);
-    block.append(blockHTML);
+        // Create list items
+        const listItems = magazineData.map(item => {
+            const title = item.title.toUpperCase();
+            const lastModified = formatDate(item.lastModified);
+            return `
+                <li>
+                    <a href="${item.path}" title="${title}">${title}</a>
+                    <div class="last-modified">${lastModified}</div>
+                </li>`;
+        }).join('');
+
+        // Inject list items into the block
+        articleListBlock.innerHTML = `<ul>${listItems}</ul>`;
+    } catch (error) {
+        console.error('Failed to fetch or process JSON data:', error);
+    }
 }
