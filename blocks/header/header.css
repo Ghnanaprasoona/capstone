@@ -280,7 +280,7 @@ header #utility {
     display: block;
     position: absolute;
     z-index: 100000;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .25);
+    box-shadow: 0 5px 10px 0 rgb(0, 0, 0, .25);
     margin-top: 12px;
     background-color: #202020;
     white-space: initial;
@@ -391,7 +391,7 @@ header nav .nav-sections ul > li {
    
 }
 header nav .nav-sections ul > li:hover {
-  background-color: rgb(255, 234, 0);
+  background-color: #ffea00;
    
 }
  

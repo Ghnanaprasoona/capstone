@@ -4,7 +4,10 @@
     background-color:white;
   }
   .breadcrumb.block{
-    display: inline-block;
+    display: block;
+    width: 100vw;
+    
+  
   }
   /* Breadcrumb navigation styles */
   .breadcrumb.block nav > ol {

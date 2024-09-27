@@ -10,10 +10,10 @@
     color: #ebebeb;
 }
 
-.default-content-wrapper h2 {
+.form-container>.default-content-wrapper>h2 {
     margin-left: 30px;
     margin-top: 5px;
-    color: #ffea00;
+    color: #ebebeb;
     font-size: 40px;
 }
 
