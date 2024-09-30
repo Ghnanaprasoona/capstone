@@ -8,11 +8,11 @@
         opacity: 1; 
     }  
 }
-
 .section.carousel-container {
     z-index: -1;
-    margin-bottom: 50px;}
-.section.carousel-container>.default-content-wrapper>h2{
+    margin-bottom: 50px;
+    >.default-content-wrapper{
+        >.h2{
         color :rgb(32, 32, 32);
         display: block;
         font-family :Asar, Georgia, "Times New Roman", Times, serif;
@@ -24,15 +24,16 @@
         line-height :54px;
         position: relative;
         }
-.section.carousel-container > .carousel-wrapper {
-        max-width:2000px !important;}
-
-.section.carousel-container > .carousel-wrapper>.carousel.block> div{
+    }
+    > .carousel-wrapper {
+        max-width:2000px !important;
+        > .carousel.block {
+            > div{
                 display:none; 
                 animation-duration: 0.5s; 
                 animation-fill-mode: both; 
-                animation-name: fadeIn;} 
-.section.carousel-container > .carousel-wrapper>.carousel.block> div> div:first-child {
+                animation-name: fadeIn; 
+                > div:first-child {
                     height:15pc;
                     @media (width>=768px){
                         height:20pc;
@@ -41,10 +42,8 @@
                         height:40pc;
                         max-height:40pc;
                     }
-
                     width:100%;
                     > picture {
-
                         > img {
                             height: 100%;
                             margin-bottom: 0;
@@ -55,10 +54,8 @@
                             
                         }
                     }
-
                 }
-
-.section.carousel-container > .carousel-wrapper>.carousel.block> div>div:last-child {
+                >div:last-child {
                     background-color: #fff;
                     display:flex;
                     flex-direction: column;
@@ -81,9 +78,8 @@
                         margin-left:auto;
                         margin-right:auto;
                         width: 71pc;
-                    }}
-
-.section.carousel-container > .carousel-wrapper>.carousel.block>div>div:last-child>h2{
+                    }
+                    >h2{
                         color :rgb(32, 32, 32);
                         display: block;
                         font-family :Asar, Georgia, "Times New Roman", Times, serif;
@@ -97,22 +93,19 @@
                        
                        
                         }
-
-.section.carousel-container > .carousel-wrapper>.carousel.block> div>div:last-child> p {
+                    > p {
                         color: #202020;
                         font-family: "Source Sans 3", "Helvetica Neue", Helvetica, Arial, sans-serif;
                         margin:0;
                         font-size: 18px;
                         line-height: 1.75;
-
                     }
-
-                
-
-.section.carousel-container > .carousel-wrapper>.carousel.block> .carousel-active >.button-container {
+                }
+            }
+            > .carousel-active , > .button-container {
                 display:block;
             }
-.section.carousel-container > .carousel-wrapper>.carousel.block> .button-action-container {
+            > .button-action-container {
                 display: flex;
                 gap: 1px;
                 float: right;
@@ -157,8 +150,7 @@
                  
                  
               }
-
-.section.carousel-container > .carousel-wrapper>.carousel.block>ul{
+            >ul{
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
@@ -191,9 +183,9 @@
                 }
             
             }
-        
+        }
    
-.section.carousel-container > .carousel-wrapper.carousel.single-slide > div > div:last-child{
+        .carousel.single-slide > div > div:last-child{
            @media (width>=0px){
             height:23pc;
            }
@@ -214,6 +206,6 @@
            
            
             }
-
         }
-    
+    }
+}
